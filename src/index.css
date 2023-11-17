@@ -1,0 +1,304 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --primary-color: rgb(255, 17, 116);
+  --secondary-color: rgb(255, 22, 177);
+  --hover-color: rgb(230, 0, 96);
+  --light-color: #fff;
+  --dark-color: #424242;
+  --placeholder: #a3a3a3;
+  --dark-placeholder: #6b6b6b;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth !important;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  color: var(--dark-color);
+  background-color: var(--light-color);
+  transition: 200ms ease-in-out;
+}
+
+.dark body {
+  color: var(--light-color);
+  background-color: var(--dark-color);
+}
+
+/* Utils Class */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  font-size: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  color: var(--light-color);
+  font-weight: bold;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.nav-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Agbalumo", cursive;
+  font-size: 2rem;
+  color: transparent;
+  background: linear-gradient(
+    60deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  cursor: pointer;
+}
+
+.pt_normal {
+  padding-top: 6.5rem !important;
+}
+
+.container {
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 1rem 2rem;
+  }
+
+  .pt_normal {
+    padding-top: 7rem !important;
+  }
+}
+
+/* Navbar Styling */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 1rem 1.5rem;
+  width: 100%;
+  height: fit-content;
+  background-color: var(--light-color);
+  top: 0;
+  z-index: 90;
+}
+
+.dark nav {
+  background-color: var(--dark-color);
+}
+
+nav .nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav .nav-item .github:hover {
+  background-color: var(--hover-color);
+}
+
+nav .nav-item .dark-mode-toggle,
+nav .nav-item .search-btn {
+  font-size: 1.35rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  nav {
+    padding: 1rem 2rem;
+  }
+
+  nav .nav-item {
+    gap: 2rem;
+  }
+
+  nav .nav-item .github {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+}
+
+/* Main Content */
+
+/* Search Field */
+.search-field {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.search-field .search-icon {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.2rem;
+  color: var(--placeholder);
+}
+
+.dark .search-field .search-icon {
+  color: var(--dark-placeholder);
+}
+
+.search-field .search {
+  padding: 1rem 2rem 1rem 3rem;
+  width: 100%;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid var(--placeholder);
+  color: var(--placeholder);
+  background-color: #f1f1f1;
+  transition: 300ms ease-in-out;
+}
+
+.dark .search-field .search {
+  background-color: #131313;
+  border: 1px solid var(--dark-placeholder);
+  color: var(--dark-placeholder);
+}
+
+.search-field .search::placeholder {
+  color: var(--placeholder);
+}
+
+.dark .search-field .search::placeholder {
+  color: var(--dark-placeholder);
+}
+
+/* Media Query Responsive */
+@media (min-width: 1024px) {
+  .search-field {
+    margin-top: 0.8rem;
+  }
+}
+
+/* List Notes */
+.list-wrapper {
+  margin-top: 2rem;
+}
+
+.gd-notes {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+.title-list {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-container {
+  position: relative;
+  padding: 0.5rem 0.5rem 3.25rem 0.5rem;
+  border: 1px solid var(--dark-color);
+  width: 100%;
+  height: 270px;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: .3rem;
+  overflow: hidden;
+}
+
+.dark .card-container {
+  border: 1px solid var(--light-color);
+}
+
+.card-container .title-card {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.card-container .date {
+  font-size: 0.9rem;
+  color: var(--placeholder);
+  margin-bottom: .4rem;
+}
+
+.card-container .content-card {
+  font-size: .9rem;
+}
+
+.card-container .btn-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-container .btn-card .delete,
+.card-container .btn-card .arsipkan {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  font-size: .9rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dark .delete {
+  border-top: 1px solid var(--light-color) !important;
+  border-right: 1px solid var(--light-color) !important;
+}
+
+.dark .arsipkan {
+  border-top: 1px solid var(--light-color) !important;
+}
+
+.delete {
+  border-top: 1px solid var(--dark-color) !important;
+  border-right: 1px solid var(--dark-color) !important;
+  color: rgb(255, 84, 84);
+}
+
+.arsipkan {
+  border-top: 1px solid var(--dark-color) !important;
+  color: yellow;
+}
+
+@media (min-width: 768px) {
+  .card-container {
+    width: 280px;
+  }
+
+  .gd-notes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .gd-notes {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
