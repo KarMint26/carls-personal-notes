@@ -1,13 +1,42 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/icon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carl's Personal Notes</title>
+
+    <!-- Meta Tag Open Graph -->
+    <meta property="og:title" content="Carl's Personal Notes" />
+    <meta
+      property="og:description"
+      content="A website that provides created notes, delete notes, search notes, and archive notes."
+    />
+    <meta
+      property="og:image"
+      itemprop="image"
+      content="https://carls-notes-app.netlify.app/icon.png"
+    />
+    <meta property="og:url" content="https://carls-notes-app.netlify.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="250" />
+    <meta property="og:image:height" content="250" />
+
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json" />
+    <!-- ios support -->
+    <link rel="apple-touch-icon" href="icon-192x192.png" />
+    <link rel="apple-touch-icon" href="icon-256x256.png" />
+    <link rel="apple-touch-icon" href="icon-384x384.png" />
+    <link rel="apple-touch-icon" href="icon-512x512.png" />
+    <meta name="apple-mobile-web-app-status-bar" content="rgb(255, 17, 116)" />
+    <meta name="theme-color" content="rgb(255, 17, 116)" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script src="pwa.js"></script>
   </body>
 </html>
