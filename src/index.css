@@ -6,8 +6,12 @@
   --hover-color: rgb(230, 0, 96);
   --light-color: #fff;
   --dark-color: #424242;
-  --placeholder: #a3a3a3;
+  --placeholder: #9c9c9c;
   --dark-placeholder: #6b6b6b;
+  --black-color: #131313;
+  --white-color: #f1f1f1;
+  --delete-color: rgb(255, 84, 84);
+  --archive-color: rgb(255, 187, 0);
 }
 
 * {
@@ -170,12 +174,12 @@ nav .nav-item .search-btn {
   outline: none;
   border: 1px solid var(--placeholder);
   color: var(--placeholder);
-  background-color: #f1f1f1;
+  background-color: var(--white-color);
   transition: 300ms ease-in-out;
 }
 
 .dark .search-field .search {
-  background-color: #131313;
+  background-color: var(--black-color);
   border: 1px solid var(--dark-placeholder);
   color: var(--dark-placeholder);
 }
@@ -224,10 +228,18 @@ nav .nav-item .search-btn {
   justify-content: flex-start;
   gap: .3rem;
   overflow: hidden;
+  background-color: var(--white-color);
+  transition: 300ms ease-in-out;
+  cursor: pointer;
+}
+
+.card-container:hover {
+  transform: translateY(-.35rem);
 }
 
 .dark .card-container {
   border: 1px solid var(--light-color);
+  background-color: var(--black-color);
 }
 
 .card-container .title-card {
@@ -236,7 +248,7 @@ nav .nav-item .search-btn {
 }
 
 .card-container .date {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--placeholder);
   margin-bottom: .4rem;
 }
@@ -256,15 +268,16 @@ nav .nav-item .search-btn {
 }
 
 .card-container .btn-card .delete,
-.card-container .btn-card .arsipkan {
+.card-container .btn-card .archive {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .5rem;
+  padding: .7rem;
   font-size: .9rem;
   font-weight: bold;
   cursor: pointer;
+  gap: .5rem;
 }
 
 .dark .delete {
@@ -272,19 +285,38 @@ nav .nav-item .search-btn {
   border-right: 1px solid var(--light-color) !important;
 }
 
-.dark .arsipkan {
+.dark .archive {
   border-top: 1px solid var(--light-color) !important;
 }
 
 .delete {
   border-top: 1px solid var(--dark-color) !important;
   border-right: 1px solid var(--dark-color) !important;
-  color: rgb(255, 84, 84);
+  color: var(--delete-color);
 }
 
-.arsipkan {
+.delete .icon,
+.archive .icon {
+  font-size: 1.1rem;
+}
+
+.archive {
   border-top: 1px solid var(--dark-color) !important;
-  color: yellow;
+  color: var(--archive-color);
+}
+
+.title-archive {
+  font-size: 1.5rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-notes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
 }
 
 @media (min-width: 768px) {

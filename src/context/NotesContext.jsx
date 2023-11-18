@@ -4,7 +4,7 @@ import { getInitialData } from "../utils/data";
 const NotesContext = createContext();
 
 export default function NotesProvider({ children }) {
-  const [dataNotes, setDataNotes] = useState([]);
+  const [dataNotes, setDataNotes] = useState(getInitialData());
   const [notesByQuery, setNotesByQuery] = useState([]);
   const [finalData, setFinalData] = useState([]);
   const [query, setQuery] = useState("");
@@ -23,7 +23,6 @@ export default function NotesProvider({ children }) {
         );
         return;
       }
-      setDataNotes(getInitialData());
     };
 
     getAllNotes();
@@ -31,18 +30,41 @@ export default function NotesProvider({ children }) {
 
   useEffect(() => {
     if (query === "" || query === null) {
-      setFinalData(dataNotes)
+      setFinalData(dataNotes);
     } else {
-      setFinalData(notesByQuery)
+      setFinalData(notesByQuery);
     }
-  }, [dataNotes, notesByQuery]);
+  }, [dataNotes, notesByQuery, query]);
 
   const searchNotes = (q) => {
     setQuery(q);
   };
 
+  const deleteNotes = (id) => {
+    setDataNotes((prev) => prev.filter((note) => note.id !== id));
+  };
+
+  const archiveNotes = (id) => {
+    const noteId = dataNotes.findIndex((note) => note.id === id);
+    dataNotes[noteId].archived = true;
+  };
+
+  const unArchiveNotes = (id) => {
+    const noteId = dataNotes.findIndex((note) => note.id === id);
+    dataNotes[noteId].archived = false;
+  };
+
   return (
-    <NotesContext.Provider value={{ finalData, searchNotes }}>
+    <NotesContext.Provider
+      value={{
+        finalData,
+        query,
+        searchNotes,
+        deleteNotes,
+        archiveNotes,
+        unArchiveNotes,
+      }}
+    >
       {children}
     </NotesContext.Provider>
   );
