@@ -103,7 +103,7 @@ nav {
   height: fit-content;
   background-color: var(--light-color);
   top: 0;
-  z-index: 90;
+  z-index: 9999;
   transition: 200ms ease-in-out;
 }
 
