@@ -2,8 +2,13 @@ const staticCarlsNotes = "carls-notes-v1";
 const assets = [
   "/",
   "/index.html",
-  "/**/*.{png,svg}",
-  "/**/*.{jsx,css}"
+  "/icon-192x192.png",
+  "/icon-256x256.png",
+  "/icon-384x384.png",
+  "/icon-512x512.png",
+  "/icon.png",
+  "/icon.svg",
+  "/assets/**/*.{js,css}",
 ];
 
 self.addEventListener("install", (installEvent) => {
