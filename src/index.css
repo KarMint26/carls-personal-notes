@@ -104,6 +104,7 @@ nav {
   background-color: var(--light-color);
   top: 0;
   z-index: 90;
+  transition: 200ms ease-in-out;
 }
 
 .dark nav {
@@ -226,7 +227,7 @@ nav .nav-item .search-btn {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: .3rem;
+  gap: 0.3rem;
   overflow: hidden;
   background-color: var(--white-color);
   transition: 300ms ease-in-out;
@@ -234,7 +235,7 @@ nav .nav-item .search-btn {
 }
 
 .card-container:hover {
-  transform: translateY(-.35rem);
+  transform: translateY(-0.35rem);
 }
 
 .dark .card-container {
@@ -250,11 +251,11 @@ nav .nav-item .search-btn {
 .card-container .date {
   font-size: 0.8rem;
   color: var(--placeholder);
-  margin-bottom: .4rem;
+  margin-bottom: 0.4rem;
 }
 
 .card-container .content-card {
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .card-container .btn-card {
@@ -265,6 +266,12 @@ nav .nav-item .search-btn {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
+  background-color: var(--white-color);
+}
+
+.dark .card-container .btn-card {
+  background-color: var(--black-color);
 }
 
 .card-container .btn-card .delete,
@@ -273,11 +280,11 @@ nav .nav-item .search-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .7rem;
-  font-size: .9rem;
+  padding: 0.7rem;
+  font-size: 0.9rem;
   font-weight: bold;
   cursor: pointer;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .dark .delete {
@@ -332,5 +339,171 @@ nav .nav-item .search-btn {
 @media (min-width: 1024px) {
   .gd-notes {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Add Button */
+.add-container {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: var(--primary-color);
+  padding: 0.9rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  cursor: pointer;
+  color: var(--light-color);
+}
+
+/* Form Add Notes */
+textarea {
+  resize: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.dark .form-wrapper {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.form {
+  position: relative;
+  background-color: var(--light-color);
+  width: 300px;
+  border-radius: 0.5rem;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
+  gap: 1rem;
+}
+
+.dark .form {
+  background-color: var(--dark-color);
+}
+
+.form .close-btn {
+  position: absolute;
+  right: .3rem;
+  top: .3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.form .title-form {
+  align-self: center;
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.form .char {
+  font-size: 0.8rem;
+  align-self: flex-end;
+}
+
+.form .input-field {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form .input-field input {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  outline: none;
+  border: 1px solid var(--placeholder);
+  background-color: var(--white-color);
+  color: var(--dark-color);
+}
+
+.form .input-field input::placeholder {
+  color: var(--placeholder);
+}
+
+.dark .form .input-field input {
+  background-color: var(--black-color);
+  border: 1px solid var(--dark-placeholder);
+  color: var(--placeholder);
+}
+
+.dark .form .input-field input::placeholder {
+  color: var(--dark-placeholder);
+}
+
+.form .input-field textarea {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  outline: none;
+  border: 1px solid var(--placeholder);
+  background-color: var(--white-color);
+  color: var(--dark-color);
+}
+
+.form .input-field textarea::placeholder {
+  color: var(--placeholder);
+}
+
+.dark .form .input-field textarea {
+  background-color: var(--black-color);
+  border: 1px solid var(--dark-placeholder);
+  color: var(--placeholder);
+}
+
+.dark .form .input-field textarea::placeholder {
+  color: var(--dark-placeholder);
+}
+
+.form button {
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--light-color);
+  background-color: var(--primary-color);
+  outline: none;
+  border: none;
+  transition: 300ms ease-in-out;
+}
+
+.form button:hover {
+  background-color: var(--hover-color);
+}
+
+@media (min-width: 768px) {
+  .form {
+    width: 600px;
+  }
+
+  .form button {
+    padding: 0.7rem;
+    border-radius: 0.5rem;
   }
 }

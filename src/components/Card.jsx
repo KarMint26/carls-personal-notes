@@ -6,10 +6,17 @@ import { getNotes } from "../context/NotesContext";
 export const Card = ({ note, triggerHook }) => {
   const { deleteNotes, archiveNotes, unArchiveNotes } = getNotes();
 
+  const capitalizeFirstLetterOfEachWord = (str) => {
+    return str
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
+
   return (
     <React.Fragment key={note.id}>
       <div className="card-container">
-        <div className="title-card">{note.title}</div>
+        <div className="title-card">{capitalizeFirstLetterOfEachWord(note.title)}</div>
         <div className="date">{showFormattedDate(note.createdAt)}</div>
         <div className="content-card">{note.body}</div>
         <div className="btn-card">
@@ -18,18 +25,24 @@ export const Card = ({ note, triggerHook }) => {
             Delete
           </div>
           {!note.archived ? (
-            <div className="archive" onClick={() => {
-              archiveNotes(note.id);
-              triggerHook();
-            }}>
+            <div
+              className="archive"
+              onClick={() => {
+                archiveNotes(note.id);
+                triggerHook();
+              }}
+            >
               <MdArchive className="icon" />
               Archive
             </div>
           ) : (
-            <div className="archive" onClick={() => {
-              unArchiveNotes(note.id);
-              triggerHook();
-            }}>
+            <div
+              className="archive"
+              onClick={() => {
+                unArchiveNotes(note.id);
+                triggerHook();
+              }}
+            >
               <MdUnarchive className="icon" />
               Unarchive
             </div>

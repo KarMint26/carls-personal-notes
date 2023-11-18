@@ -54,6 +54,20 @@ export default function NotesProvider({ children }) {
     dataNotes[noteId].archived = false;
   };
 
+  const handleAddNotes = (title, body) => {
+    const newNotes = {
+      id: Number(+new Date()),
+      title: String(title),
+      body: String(body),
+      createdAt: new Date().toISOString(),
+      archived: Boolean(false),
+    };
+
+    setDataNotes((prevData) => {
+      return [...prevData, newNotes];
+    });
+  };
+
   return (
     <NotesContext.Provider
       value={{
@@ -63,6 +77,7 @@ export default function NotesProvider({ children }) {
         deleteNotes,
         archiveNotes,
         unArchiveNotes,
+        handleAddNotes,
       }}
     >
       {children}
